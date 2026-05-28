@@ -30,11 +30,9 @@ public class ReceiverThread implements Runnable {
             String rawLine;
             
             // Loop blocks waiting for data from the server, running in the background.
-            while (isListening && (rawLine = in.readLine()) != null) {
-                JsonPacket inboundPacket = ProtocolParser.deserialize(rawLine);
-                
-                // TODO: Route this packet to your client-side UI/Game View updater.
-                System.out.println("[INBOUND] " + inboundPacket.getSender() + ": " + inboundPacket.getContent());
+                while (isListening && (rawLine = in.readLine()) != null) {
+                    JsonPacket inboundPacket = ProtocolParser.deserialize(rawLine);
+                    clientCore.handleInboundPacket(inboundPacket);
             }
         } catch (IOException e) {
             if (isListening) {

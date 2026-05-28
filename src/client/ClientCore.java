@@ -16,6 +16,7 @@ public class ClientCore {
     private PrintWriter out;
     private ReceiverThread receiverThread;
     private SenderService senderService;
+    private ClientPacketListener packetListener;
     private boolean isConnected;
 
     public ClientCore(String host, int port) {
@@ -47,6 +48,18 @@ public class ClientCore {
     public void sendPacket(JsonPacket packet) {
         if (isConnected && senderService != null) {
             senderService.send(packet);
+        }
+    }
+
+    public void setPacketListener(ClientPacketListener packetListener) {
+        this.packetListener = packetListener;
+    }
+
+    void handleInboundPacket(JsonPacket packet) {
+        if (packetListener != null) {
+            packetListener.onPacketReceived(packet);
+        } else {
+            System.out.println("[INBOUND] " + packet.getSender() + ": " + packet.getContent());
         }
     }
 
