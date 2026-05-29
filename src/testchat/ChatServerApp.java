@@ -19,23 +19,6 @@ import server.ServerCore;
  */
 public class ChatServerApp {
     public static void main(String[] args) {
-        System.out.println("Use the following IP addresses to connect clients:");
-        System.out.println("Localhost: 127.0.0.1");
-        String localIp = "Unavailable";
-        try {     
-            localIp = getLocalIp();
-        } catch (SocketException e) {
-            System.err.println("Failed to retrieve local IP: " + e.getMessage());
-        }
-        System.out.println("Local IP: " + localIp);
-        String publicIp = "Unavailable";
-        try {
-            publicIp = getPublicIp();
-        } catch (IOException e) {
-            System.err.println("Failed to retrieve public IP: " + e.getMessage());
-        }
-        System.out.println("Public IP: " + publicIp);
-
         Scanner scanner = new Scanner(System.in);
 
         // Get Port from user input with a default fallback.
@@ -50,6 +33,23 @@ public class ChatServerApp {
         }
         System.out.println("Using server port: " + port);
         scanner.close();
+
+        System.out.println("Use the following IP addresses to connect clients:");
+        System.out.println(" >> Localhost: 127.0.0.1");
+        String localIp = "Unavailable";
+        try {     
+            localIp = getLocalIp();
+        } catch (SocketException e) {
+            System.err.println("Failed to retrieve local IP: " + e.getMessage());
+        }
+        System.out.println(" >> Local IP: " + localIp);
+        String publicIp = "Unavailable";
+        try {
+            publicIp = getPublicIp();
+        } catch (IOException e) {
+            System.err.println("Failed to retrieve public IP: " + e.getMessage());
+        }
+        System.out.println(" >> Public IP: " + publicIp);
 
         ChatLogic chatLogic = new ChatLogic();
         

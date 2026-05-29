@@ -207,10 +207,10 @@ public class ChatClientApp {
         switch (currentMode) {
             case MAIN_MENU:
                 System.out.println("<<< Chat Menu >>>");
-                System.out.println("1) Broadcast message to everyone");
-                System.out.println("2) Show active users");
-                System.out.println("3) Private message to a user");
-                System.out.println("4) Quit");
+                System.out.println(" 1. Broadcast message to everyone");
+                System.out.println(" 2. Show active users");
+                System.out.println(" 3. Private message to a user");
+                System.out.println(" 4. Quit");
                 System.out.print("Choose an option: ");
                 break;
             case BROADCAST:
