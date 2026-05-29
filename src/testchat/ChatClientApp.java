@@ -170,25 +170,17 @@ public class ChatClientApp {
 
         if ("SYSTEM".equals(command)) {
             return "[SYSTEM] " + packet.getContent();
-        }
-
-        if ("USERS_LIST".equals(command)) {
+        } else if ("USERS_LIST".equals(command)) {
             return "[USERS]" + System.lineSeparator() + packet.getContent();
-        }
-
-        if ("PRIVATE_MESSAGE".equals(command)) {
+        } else if ("PRIVATE_MESSAGE".equals(command)) {
             return "[PRIVATE] from " + packet.getSender() + ": " + packet.getContent();
-        }
-
-        if ("PRIVATE_SENT".equals(command)) {
+        } else if ("PRIVATE_SENT".equals(command)) {
             return "[PRIVATE] to " + packet.getSender() + ": " + packet.getContent();
-        }
-
-        if ("ERROR".equals(command)) {
+        } else if ("ERROR".equals(command)) {
             return "[ERROR] " + packet.getContent();
+        } else {
+            return "[" + command + "] " + packet.getSender() + ": " + packet.getContent();
         }
-
-        return "[" + command + "] " + packet.getSender() + ": " + packet.getContent();
     }
 
     private static void renderConsole() {
@@ -197,7 +189,7 @@ public class ChatClientApp {
         for (String entry : HISTORY) {
             System.out.println(entry);
         }
-
+        
         System.out.println();
         renderPrompt();
         System.out.flush();

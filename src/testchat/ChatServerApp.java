@@ -63,12 +63,16 @@ public class ChatServerApp {
 
     private static String getLocalIp() throws SocketException {
         Enumeration<NetworkInterface> ifaces = NetworkInterface.getNetworkInterfaces();
+
         while (ifaces.hasMoreElements()) {
             NetworkInterface iface = ifaces.nextElement();
             if (iface.isLoopback() || !iface.isUp()) continue;
+
             Enumeration<InetAddress> addrs = iface.getInetAddresses();
+
             while (addrs.hasMoreElements()) {
                 InetAddress addr = addrs.nextElement();
+                
                 if (addr instanceof Inet4Address && !addr.isLoopbackAddress()) {
                     return addr.getHostAddress();
                 }

@@ -116,7 +116,7 @@ public class ChatLogic implements ServerListener {
 
         StringBuilder builder = new StringBuilder("Active users:\n");
         for (String username : clientsByUsername.keySet()) {
-            builder.append("- ").append(username).append('\n');
+            builder.append(" >> ").append(username).append('\n');
         }
         return builder.toString().trim();
     }
