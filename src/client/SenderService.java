@@ -1,8 +1,9 @@
 package client;
 
+import java.io.PrintWriter;
+
 import common.JsonPacket;
 import common.ProtocolParser;
-import java.io.PrintWriter;
 
 /**
  * Dedicated utility service handling outbound packet transmissions.

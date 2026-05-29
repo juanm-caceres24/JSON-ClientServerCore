@@ -1,9 +1,10 @@
 package client;
 
-import common.JsonPacket;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.net.Socket;
+
+import common.JsonPacket;
 
 /**
  * Handles the client-side network lifecycle, including establishing connection 

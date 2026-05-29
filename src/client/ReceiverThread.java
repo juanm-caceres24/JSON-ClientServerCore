@@ -1,11 +1,12 @@
 package client;
 
-import common.JsonPacket;
-import common.ProtocolParser;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.net.Socket;
+
+import common.JsonPacket;
+import common.ProtocolParser;
 
 /**
  * Independent thread running on the client side. Its sole competency is to constantly

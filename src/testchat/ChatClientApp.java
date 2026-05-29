@@ -1,11 +1,12 @@
 package testchat;
 
-import client.ClientCore;
-import client.ClientPacketListener;
-import common.JsonPacket;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
+
+import client.ClientCore;
+import client.ClientPacketListener;
+import common.JsonPacket;
 
 /**
  * Executable application to launch a Chat Client console instance.

@@ -1,12 +1,14 @@
 package testchat;
 
-import common.JsonPacket;
-import server.ClientHandler;
-import server.ServerListener;
+
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+
+import common.JsonPacket;
+import server.ClientHandler;
+import server.ServerListener;
 
 /**
  * Custom implementation of the ServerListener interface for a basic multi-user chat.
